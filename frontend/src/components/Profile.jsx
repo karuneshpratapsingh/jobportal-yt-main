@@ -56,7 +56,9 @@ const Profile = () => {
                     <Label className="text-md font-bold">Resume</Label>
                     {
                         isResume ? <a target='blank' href={user?.profile?.resume} className='text-blue-500 w-full hover:underline cursor-pointer'>{user?.profile?.resumeOriginalName}</a> : <span>NA</span>
+                        
                     }
+                    
                 </div>
             </div>
             <div className='max-w-4xl mx-auto bg-white rounded-2xl'>

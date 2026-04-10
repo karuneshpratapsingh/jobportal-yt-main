@@ -25,8 +25,11 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
-
+ app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 // api's
+
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
@@ -44,6 +47,4 @@ connectDB()
     console.error("Failed to connect to DB", err);
     process.exit(1);
   });
-  app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
+ 

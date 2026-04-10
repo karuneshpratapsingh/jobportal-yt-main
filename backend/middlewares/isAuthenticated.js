@@ -20,6 +20,9 @@ const isAuthenticated = async (req, res, next) => {
         next();
     } catch (error) {
         console.log(error);
+        if (error.name === 'JsonWebTokenError' || error.name === 'TokenExpiredError') {
+            return res.status(401).json({ message: "Invalid or expired token", success: false });
+        }
         return res.status(500).json({ message: "Internal Server Error", success: false });
     }
 }

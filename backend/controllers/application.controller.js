@@ -43,7 +43,12 @@ export const applyJob = async (req, res) => {
             success:true
         })
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        return res.status(500).json({
+            message: "Internal server error.",
+            success: false,
+            error: error.message,
+        });
     }
 };
 export const getAppliedJobs = async (req,res) => {
@@ -89,11 +94,16 @@ export const getApplicants = async (req,res) => {
             })
         };
         return res.status(200).json({
-            job, 
-            succees:true
+            job,
+            success:true
         });
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        return res.status(500).json({
+            message: "Internal server error.",
+            success: false,
+            error: error.message,
+        });
     }
 }
 export const updateStatus = async (req,res) => {
